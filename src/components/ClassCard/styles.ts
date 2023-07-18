@@ -1,6 +1,6 @@
+import styled, { css } from 'styled-components/native'
 import { TouchableOpacity } from 'react-native'
-import { Users } from 'react-native-feather'
-import styled from 'styled-components/native'
+import { Feather } from '@expo/vector-icons'
 
 export const Container = styled(TouchableOpacity)`
   width: 100%;
@@ -17,15 +17,17 @@ export const Container = styled(TouchableOpacity)`
 `
 
 export const Title = styled.Text`
-  font-size: ${({ theme }) => theme.font_size.md}px;
-  font-family: ${({ theme }) => theme.font_family.regular};
-  color: ${({ theme }) => theme.colors.gray_200};
+  ${({ theme }) => css`
+    font-size: ${theme.font_size.md}px;
+    font-family: ${theme.font_family.regular};
+    color: ${theme.colors.gray_200};
+  `}
 `
 
-export const Icon = styled(Users).attrs(({ theme }) => ({
-  stroke: theme.colors.green_700,
-  width: 32,
-  height: 32,
+export const Icon = styled(Feather).attrs(({ theme }) => ({
+  name: 'users',
+  color: theme.colors.green_700,
+  size: 32,
 }))`
   margin-right: 20px;
 `
