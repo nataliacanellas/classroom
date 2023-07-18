@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import { ChevronLeft } from 'react-native-feather'
+import { Feather } from '@expo/vector-icons'
 
 export const Container = styled.View`
   width: 100%;
@@ -19,8 +19,8 @@ export const BackButton = styled.TouchableOpacity`
   flex: 1;
 `
 
-export const ArrowLeft = styled(ChevronLeft).attrs(({ theme }) => ({
-  stroke: theme.colors.white,
-  width: 32,
-  height: 32,
+export const ArrowLeft = styled(Feather).attrs(({ theme }) => ({
+  name: 'chevron-left',
+  color: theme.colors.white,
+  size: 32,
 }))``
