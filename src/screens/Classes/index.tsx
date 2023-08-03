@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 import { Container } from './styles'
 import { Header } from '@components/Header'
 import { Highlight } from '@components/Highlight'
@@ -11,6 +12,12 @@ import { Button } from '@components/Button'
 
 export const Classes: React.FC = () => {
   const [classes, setClasses] = useState<string[]>([])
+
+  const navigation = useNavigation()
+
+  function handleNewClass() {
+    navigation.navigate('new')
+  }
 
   return (
     <Container>
@@ -26,7 +33,7 @@ export const Classes: React.FC = () => {
         )}
       />
 
-      <Button title="Create new class" />
+      <Button title="Create new class" onPress={handleNewClass} />
     </Container>
   )
 }

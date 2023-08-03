@@ -1,24 +1,32 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useState } from 'react'
+import { useRoute } from '@react-navigation/native'
 import { Container, Form, ListHeader, NumberofStudents } from './styles'
 import { Header } from '@components/Header'
 import { Highlight } from '@components/Highlight'
 import { Input } from '@components/Input'
 import { ButtonIcon } from '@components/ButtonIcon'
 import { Filter } from '@components/Filter'
-import StudentCard from '@components/StudentCard'
+import { StudentCard } from '@components/StudentCard'
 import { EmptyList } from '@components/EmptyList'
 import { Button } from '@components/Button'
 import { FlatList } from 'react-native'
+
+type RouteParams = {
+  classroom: string
+}
 
 export const Students: React.FC = () => {
   const [group, setGroup] = useState('Group A')
   const [students, setStudents] = useState([])
 
+  const route = useRoute()
+  const { classroom } = route.params as RouteParams
+
   return (
     <Container>
       <Header showBackButton />
-      <Highlight title="Class Name" subtitle="Add students and divide into groups" />
+      <Highlight title={classroom} subtitle="Add students and divide into groups" />
       <Form>
         <Input placeholder="Student's name" autoCorrect={false} />
         <ButtonIcon icon="plus" />

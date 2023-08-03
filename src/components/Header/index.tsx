@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 import { ArrowLeft, BackButton, Container, Logo } from './styles'
 
 import logoImg from '@assets/logo.png'
@@ -8,10 +9,16 @@ type Props = {
 }
 
 export const Header: React.FC<Props> = ({ showBackButton = false }) => {
+  const navigation = useNavigation()
+
+  function handleGoBack() {
+    navigation.navigate('classes')
+  }
+
   return (
     <Container>
       {showBackButton && (
-        <BackButton>
+        <BackButton onPress={handleGoBack}>
           <ArrowLeft />
         </BackButton>
       )}
