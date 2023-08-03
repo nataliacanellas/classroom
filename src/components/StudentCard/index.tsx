@@ -7,7 +7,7 @@ type Props = {
   onRemove: () => void
 }
 
-const StudentCard: React.FC<Props> = ({ name, onRemove }) => {
+export const StudentCard: React.FC<Props> = ({ name, onRemove }) => {
   return (
     <Container>
       <Icon name="user" />
@@ -18,5 +18,3 @@ const StudentCard: React.FC<Props> = ({ name, onRemove }) => {
     </Container>
   )
 }
-
-export default StudentCard
